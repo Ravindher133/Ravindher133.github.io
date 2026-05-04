@@ -3,960 +3,1106 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Ravindher A — QA & Cybersecurity Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<title>Ravindher A — Cinematic Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --bg: #0a0e17;
-    --surface: #111827;
-    --surface2: #1a2235;
-    --border: #1e2d45;
-    --accent: #3b82f6;
-    --accent2: #06b6d4;
-    --accent3: #10b981;
-    --text: #e2e8f0;
-    --muted: #64748b;
-    --heading: #f8fafc;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Outfit', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ── GRID BACKGROUND ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 4rem;
-    background: rgba(10,14,23,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.85rem;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--accent); }
-
-  /* ── SECTIONS ── */
-  section {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 5rem 2rem;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8rem 4rem 4rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .hero-tag {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid rgba(59,130,246,0.3);
-    padding: 0.4rem 1.2rem;
-    border-radius: 2px;
-    margin-bottom: 2rem;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    line-height: 1.05;
-    color: var(--heading);
-    margin-bottom: 1.5rem;
-    animation: fadeUp 0.6s 0.1s ease both;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 600px;
-    margin: 0 auto 3rem;
-    animation: fadeUp 0.6s 0.2s ease both;
-  }
-
-  .hero-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-    margin-bottom: 3rem;
-    animation: fadeUp 0.6s 0.3s ease both;
-  }
-
-  .badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    padding: 0.4rem 1rem;
-    border-radius: 2px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .badge-blue { background: rgba(59,130,246,0.1); color: var(--accent); border: 1px solid rgba(59,130,246,0.25); }
-  .badge-cyan { background: rgba(6,182,212,0.1); color: var(--accent2); border: 1px solid rgba(6,182,212,0.25); }
-  .badge-green { background: rgba(16,185,129,0.1); color: var(--accent3); border: 1px solid rgba(16,185,129,0.25); }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    animation: fadeUp 0.6s 0.4s ease both;
-  }
-
-  .btn {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.85rem 2rem;
-    border-radius: 2px;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-    border: none;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-  }
-
-  .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-  /* ── SECTION HEADERS ── */
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
-  }
-
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    color: var(--heading);
-    margin-bottom: 3rem;
-    line-height: 1.2;
-  }
-
-  /* ── ABOUT ── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  .about-text p {
-    color: var(--muted);
-    margin-bottom: 1.2rem;
-    font-size: 0.97rem;
-  }
-
-  .about-text p strong { color: var(--text); font-weight: 500; }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.5rem;
-    transition: border-color 0.2s;
-  }
-
-  .stat-card:hover { border-color: var(--accent); }
-
-  .stat-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.2rem;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-  }
-
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .skill-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-    transition: all 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .skill-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
-  .skill-card.blue::before { background: var(--accent); }
-  .skill-card.cyan::before { background: var(--accent2); }
-  .skill-card.green::before { background: var(--accent3); }
-
-  .skill-card:hover { border-color: var(--border); transform: translateY(-3px); }
-  .skill-card:hover::before { opacity: 1; }
-
-  .skill-icon {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .skill-card h3 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--heading);
-    margin-bottom: 1rem;
-  }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .skill-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    padding: 0.25rem 0.6rem;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-  }
-
-  /* ── PROJECTS ── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 2rem;
-    transition: all 0.2s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-card:hover { border-color: rgba(59,130,246,0.4); transform: translateY(-3px); }
-
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-  }
-
-  .project-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.25rem 0.6rem;
-    border-radius: 2px;
-  }
-
-  .type-qa { background: rgba(16,185,129,0.1); color: var(--accent3); border: 1px solid rgba(16,185,129,0.2); }
-  .type-security { background: rgba(59,130,246,0.1); color: var(--accent); border: 1px solid rgba(59,130,246,0.2); }
-  .type-ai { background: rgba(6,182,212,0.1); color: var(--accent2); border: 1px solid rgba(6,182,212,0.2); }
-
-  .project-card h3 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--heading);
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-  }
-
-  .project-card p {
-    font-size: 0.9rem;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-    line-height: 1.6;
-  }
-
-  .project-footer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: auto;
-  }
-
-  /* ── EXPERIENCE ── */
-  .timeline {
-    position: relative;
-    padding-left: 2rem;
-  }
-
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 1px;
-    background: var(--border);
-  }
-
-  .timeline-item {
-    position: relative;
-    padding-bottom: 3rem;
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -2.4rem;
-    top: 0.4rem;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid var(--bg);
-    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
-  }
-
-  .timeline-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .timeline-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-  }
-
-  .timeline-company {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-  }
-
-  .timeline-item h3 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    color: var(--heading);
-    margin-bottom: 0.75rem;
-  }
-
-  .timeline-item ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .timeline-item ul li {
-    font-size: 0.9rem;
-    color: var(--muted);
-    padding-left: 1.2rem;
-    position: relative;
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
-  }
-
-  .timeline-item ul li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-size: 0.75rem;
-  }
-
-  /* ── CERTIFICATIONS ── */
-  .certs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-  }
-
-  .cert-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: all 0.2s;
-  }
-
-  .cert-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-
-  .cert-icon {
-    font-size: 1.8rem;
-    flex-shrink: 0;
-  }
-
-  .cert-info h4 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--heading);
-    margin-bottom: 0.2rem;
-  }
-
-  .cert-info span {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  /* ── CONTACT ── */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .contact-text h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    color: var(--heading);
-    margin-bottom: 1rem;
-  }
-
-  .contact-text p {
-    color: var(--muted);
-    margin-bottom: 2rem;
-    font-size: 0.97rem;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.2rem 1.5rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.2s;
-    font-size: 0.9rem;
-  }
-
-  .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); }
-
-  .contact-link-icon {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    min-width: 60px;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid var(--border);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.2rem; }
-    .hero { padding: 7rem 1.5rem 3rem; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-  }
+/* ═══════════════ RESET & VARS ═══════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#000009;
+  --deep:#04060f;
+  --navy:#070d1e;
+  --blue:#1a6bff;
+  --cyan:#00e5ff;
+  --purple:#7b2fff;
+  --violet:#b44fff;
+  --white:#eef4ff;
+  --muted:#4a6080;
+  --glow-blue:rgba(26,107,255,0.6);
+  --glow-cyan:rgba(0,229,255,0.6);
+  --glow-purple:rgba(123,47,255,0.5);
+}
+
+html,body{
+  width:100%;height:100%;
+  background:var(--black);
+  color:var(--white);
+  font-family:'Rajdhani',sans-serif;
+  overflow:hidden;
+  user-select:none;
+}
+
+/* ═══════════════ CANVAS LAYERS ═══════════════ */
+#bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+#scanlines{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0,0,0,0.18) 3px,
+    rgba(0,0,0,0.18) 4px
+  );
+  animation:scanlineScroll 8s linear infinite;
+}
+@keyframes scanlineScroll{from{background-position:0 0}to{background-position:0 100px}}
+
+#vignette{
+  position:fixed;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,0.92) 100%);
+}
+
+/* ═══════════════ MASTER STAGE ═══════════════ */
+#stage{
+  position:fixed;inset:0;z-index:10;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+
+/* ═══════════════ SCENES ═══════════════ */
+.scene{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.05s;
+}
+.scene.active{opacity:1;pointer-events:all}
+
+/* ═══════════════ TRANSITIONS ═══════════════ */
+.fade-in  {animation:fadeIn 1.8s ease forwards}
+.fade-out {animation:fadeOut 1s ease forwards}
+@keyframes fadeIn {from{opacity:0}to{opacity:1}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0}}
+
+/* ═══════════════ TYPOGRAPHY ═══════════════ */
+.title-main{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,9vw,8rem);
+  letter-spacing:0.06em;
+  line-height:1;
+  text-align:center;
+  color:var(--white);
+  text-shadow:0 0 40px var(--glow-blue),0 0 80px rgba(26,107,255,0.3);
+}
+.title-sub{
+  font-family:'Rajdhani',sans-serif;
+  font-size:clamp(0.9rem,2vw,1.4rem);
+  font-weight:500;
+  letter-spacing:0.4em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  text-shadow:0 0 20px var(--glow-cyan);
+}
+.title-mono{
+  font-family:'Share Tech Mono',monospace;
+  font-size:clamp(0.7rem,1.5vw,1rem);
+  color:var(--cyan);
+  opacity:0.8;
+  letter-spacing:0.08em;
+}
+.big-quote{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem,7vw,6.5rem);
+  letter-spacing:0.04em;
+  line-height:1.05;
+  text-align:center;
+}
+
+/* ═══════════════ GLITCH ═══════════════ */
+.glitch{
+  position:relative;
+  animation:glitchAnim 4s infinite;
+}
+.glitch::before,.glitch::after{
+  content:attr(data-text);
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+}
+.glitch::before{
+  color:var(--cyan);
+  animation:glitch1 4s infinite;
+  clip-path:polygon(0 20%,100% 20%,100% 40%,0 40%);
+}
+.glitch::after{
+  color:var(--violet);
+  animation:glitch2 4s infinite;
+  clip-path:polygon(0 60%,100% 60%,100% 80%,0 80%);
+}
+@keyframes glitch1{
+  0%,90%,100%{transform:translate(0)}
+  92%{transform:translate(-4px,2px)}
+  94%{transform:translate(4px,-2px)}
+  96%{transform:translate(-2px,0)}
+}
+@keyframes glitch2{
+  0%,90%,100%{transform:translate(0)}
+  92%{transform:translate(4px,-2px)}
+  94%{transform:translate(-4px,2px)}
+  96%{transform:translate(2px,0)}
+}
+@keyframes glitchAnim{
+  0%,89%,100%{filter:none}
+  90%{filter:hue-rotate(20deg) saturate(3)}
+  91%{filter:hue-rotate(-20deg) saturate(3)}
+}
+
+/* ═══════════════ KEYWORD FLOAT ═══════════════ */
+.kw-float{
+  position:absolute;
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.75rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  pointer-events:none;
+  opacity:0;
+  animation:kwFloat 2s ease forwards;
+}
+@keyframes kwFloat{
+  0%{opacity:0;transform:translateY(20px)}
+  30%{opacity:1}
+  80%{opacity:0.8}
+  100%{opacity:0;transform:translateY(-30px)}
+}
+
+/* ═══════════════ NEON LINE ═══════════════ */
+.neon-line{
+  width:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  box-shadow:0 0 10px var(--glow-cyan);
+  margin:1.5rem auto;
+  animation:lineGrow 1.2s ease forwards;
+}
+@keyframes lineGrow{to{width:340px}}
+
+.neon-line-v{
+  width:1px;
+  background:linear-gradient(to bottom,transparent,var(--cyan),transparent);
+  box-shadow:0 0 8px var(--glow-cyan);
+}
+
+/* ═══════════════ CODE RAIN ═══════════════ */
+#codeCanvas{position:absolute;inset:0;opacity:0.18;pointer-events:none}
+
+/* ═══════════════ PROGRESS BAR ═══════════════ */
+#progress{
+  position:fixed;bottom:0;left:0;right:0;z-index:50;
+  height:2px;
+  background:rgba(255,255,255,0.05);
+}
+#progress-fill{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple));
+  box-shadow:0 0 8px var(--glow-cyan);
+  transition:width 0.5s linear;
+}
+
+/* ═══════════════ CONTROLS ═══════════════ */
+#controls{
+  position:fixed;bottom:20px;right:20px;z-index:100;
+  display:flex;gap:10px;align-items:center;
+}
+.ctrl-btn{
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:0.5rem 1rem;
+  background:rgba(26,107,255,0.1);
+  border:1px solid rgba(26,107,255,0.4);
+  color:var(--cyan);
+  border-radius:2px;
+  cursor:pointer;
+  transition:all 0.2s;
+}
+.ctrl-btn:hover{background:rgba(26,107,255,0.25);box-shadow:0 0 12px var(--glow-blue)}
+
+#scene-counter{
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.6rem;
+  color:var(--muted);
+  letter-spacing:0.1em;
+}
+
+/* ═══════════════ SCENE DECORATIONS ═══════════════ */
+
+/* Corner brackets */
+.bracket{
+  position:absolute;
+  width:60px;height:60px;
+  border-color:rgba(26,107,255,0.4);
+  border-style:solid;
+  opacity:0;
+  animation:bracketFade 1s 0.5s ease forwards;
+}
+@keyframes bracketFade{to{opacity:1}}
+.bracket.tl{top:40px;left:40px;border-width:2px 0 0 2px}
+.bracket.tr{top:40px;right:40px;border-width:2px 2px 0 0}
+.bracket.bl{bottom:40px;left:40px;border-width:0 0 2px 2px}
+.bracket.br{bottom:40px;right:40px;border-width:0 2px 2px 0}
+
+/* HUD overlay */
+.hud{
+  position:absolute;top:30px;left:50%;transform:translateX(-50%);
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.6rem;
+  color:rgba(0,229,255,0.4);
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+}
+
+/* Timeline labels (right side) */
+.timeline-label{
+  position:absolute;right:3rem;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:0.5rem;align-items:flex-end;
+}
+.tl-item{
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.62rem;
+  letter-spacing:0.1em;
+  color:var(--muted);
+  opacity:0;
+  animation:tlReveal 0.4s ease forwards;
+}
+.tl-item.active-item{color:var(--cyan);text-shadow:0 0 8px var(--glow-cyan)}
+@keyframes tlReveal{to{opacity:1}}
+
+/* ═══════════════ SPECIFIC SCENE STYLES ═══════════════ */
+
+/* Scene 1 — Opening */
+#s1 .cursor{
+  display:inline-block;
+  width:2px;height:1.2em;
+  background:var(--cyan);
+  vertical-align:middle;
+  animation:blink 0.9s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+#s1 .laptop-sim{
+  width:380px;height:220px;
+  border:1px solid rgba(26,107,255,0.3);
+  border-radius:4px;
+  background:rgba(4,6,15,0.9);
+  padding:1rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.62rem;
+  color:var(--cyan);
+  line-height:1.8;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 0 60px rgba(26,107,255,0.15),inset 0 0 30px rgba(0,0,0,0.5);
+}
+#s1 .laptop-sim::before{
+  content:'TERMINAL — IQVIA SUPPORT DESK';
+  display:block;
+  color:rgba(0,229,255,0.4);
+  font-size:0.55rem;
+  letter-spacing:0.2em;
+  margin-bottom:0.5rem;
+  padding-bottom:0.5rem;
+  border-bottom:1px solid rgba(26,107,255,0.2);
+}
+
+/* Scene 3 — Stats */
+.stat-bar{
+  width:100%;max-width:400px;
+  margin:0.4rem 0;
+}
+.stat-bar-label{
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.1em;
+  color:var(--cyan);
+  margin-bottom:3px;
+  display:flex;justify-content:space-between;
+}
+.stat-bar-track{
+  height:3px;
+  background:rgba(255,255,255,0.06);
+  border-radius:2px;
+  overflow:hidden;
+}
+.stat-bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  box-shadow:0 0 8px var(--glow-cyan);
+  border-radius:2px;
+  width:0;
+  animation:barFill 1.5s ease forwards;
+}
+@keyframes barFill{to{width:var(--w)}}
+
+/* Alert / log lines */
+.log-line{
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.04em;
+  line-height:1.9;
+  color:rgba(0,229,255,0.6);
+  overflow:hidden;
+  white-space:nowrap;
+  animation:typeIn 0.5s steps(40) forwards;
+  width:0;
+}
+.log-line.warn{color:rgba(255,209,102,0.8)}
+.log-line.alert{color:rgba(255,107,107,0.9)}
+@keyframes typeIn{to{width:100%}}
+
+/* Scene 5 — Map */
+.map-dot{
+  position:absolute;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 16px var(--glow-cyan);
+  animation:dotPulse 1.5s ease infinite;
+}
+@keyframes dotPulse{
+  0%,100%{transform:scale(1);opacity:1}
+  50%{transform:scale(1.6);opacity:0.5}
+}
+
+/* Scene 7 — Level up */
+.level-bar{
+  width:360px;height:8px;
+  background:rgba(255,255,255,0.06);
+  border-radius:4px;
+  overflow:hidden;
+  margin:0.6rem auto;
+  position:relative;
+}
+.level-fill{
+  height:100%;
+  border-radius:4px;
+  width:0;
+  animation:levelFill 2s ease forwards;
+  box-shadow:0 0 12px var(--glow-cyan);
+}
+@keyframes levelFill{to{width:var(--lw)}}
+
+/* Scene 9 — Final */
+.final-card{
+  border:1px solid rgba(26,107,255,0.35);
+  padding:3rem 4rem;
+  text-align:center;
+  position:relative;
+  background:rgba(7,13,30,0.8);
+  backdrop-filter:blur(20px);
+}
+.final-card::before,.final-card::after{
+  content:'';
+  position:absolute;
+  width:30px;height:30px;
+  border-color:var(--cyan);
+  border-style:solid;
+  box-shadow:0 0 20px var(--glow-cyan);
+}
+.final-card::before{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.final-card::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+
+.contact-row{
+  display:flex;gap:2rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap;
+}
+.contact-pill{
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  padding:0.5rem 1.2rem;
+  border:1px solid rgba(0,229,255,0.4);
+  color:var(--cyan);
+  border-radius:2px;
+  text-decoration:none;
+}
+
+/* ═══════════════ OVERLAY KEYWORDS ═══════════════ */
+.kw-overlay{
+  position:absolute;
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.65rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  opacity:0;
+  text-shadow:0 0 12px var(--glow-cyan);
+}
+
+/* ═══════════════ AUDIO NOTE ═══════════════ */
+#audio-note{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  z-index:200;
+  font-family:'Share Tech Mono',monospace;
+  font-size:0.6rem;
+  letter-spacing:0.15em;
+  color:rgba(0,229,255,0.6);
+  background:rgba(4,6,15,0.9);
+  border:1px solid rgba(26,107,255,0.2);
+  padding:0.5rem 1.2rem;
+  border-radius:2px;
+  animation:noteSlide 3s ease forwards 1s;
+  opacity:0;
+}
+@keyframes noteSlide{
+  0%{opacity:0;transform:translateX(-50%) translateY(-10px)}
+  15%{opacity:1;transform:translateX(-50%) translateY(0)}
+  80%{opacity:1}
+  100%{opacity:0}
+}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media(max-width:600px){
+  .title-main{font-size:clamp(2.2rem,11vw,4rem)}
+  .big-quote{font-size:clamp(1.8rem,8vw,3.5rem)}
+  .bracket{display:none}
+  .final-card{padding:2rem 1.5rem}
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">RA // Portfolio</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<!-- Atmospheric layers -->
+<canvas id="bgCanvas"></canvas>
+<canvas id="codeCanvas"></canvas>
+<div id="scanlines"></div>
+<div id="vignette"></div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">Dublin, Ireland — Open to Opportunities</div>
-    <h1>Ravindher A<br/><em>QA & Cyber</em> Professional</h1>
-    <p class="hero-sub">2+ years in enterprise software testing and information security. MSc Cybersecurity student. CEH · Security+ · CCNA certified.</p>
-    <div class="hero-badges">
-      <span class="badge badge-green">QA Analyst</span>
-      <span class="badge badge-green">Mobile Testing · iOS & Android</span>
-      <span class="badge badge-blue">SOC Analyst</span>
-      <span class="badge badge-blue">SIEM · Wazuh · MITRE ATT&CK</span>
-      <span class="badge badge-cyan">MSc Cybersecurity · 2026</span>
-    </div>
-    <div class="hero-cta">
-      <a href="mailto:aravindher2001@gmail.com" class="btn btn-primary">Get In Touch</a>
-      <a href="www.linkedin.com/in/ravindher-a-42b42919b/" target="_blank" class="btn btn-outline">LinkedIn</a>
-      <a href="https://github.com/Ravindher133" target="_blank" class="btn btn-outline">GitHub</a>
-    </div>
-  </div>
+<div id="audio-note">🎵 Best experienced with audio · Add your soundtrack</div>
+
+<!-- Progress -->
+<div id="progress"><div id="progress-fill"></div></div>
+
+<!-- Controls -->
+<div id="controls">
+  <span id="scene-counter">01 / 09</span>
+  <button class="ctrl-btn" id="prevBtn">◀ Prev</button>
+  <button class="ctrl-btn" id="playBtn">⏸ Pause</button>
+  <button class="ctrl-btn" id="nextBtn">Next ▶</button>
 </div>
 
-<hr class="divider"/>
+<!-- ═══════ STAGE ═══════ -->
+<div id="stage">
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="fade-in">
-    <div class="section-label">// 01 — About</div>
-    <h2 class="section-title">Who I Am</h2>
-  </div>
-  <div class="about-grid fade-in">
-    <div class="about-text">
-      <p>I'm a <strong>QA and Cybersecurity professional</strong> based in Dublin, Ireland, with 2+ years of hands-on experience at IQVIA — a global healthcare technology company — where I tested mission-critical Hospital Information Systems and mobile applications before client delivery.</p>
-      <p>My background spans <strong>functional testing, regression testing, UAT, and mobile application testing</strong> across iOS and Android platforms, alongside defect management using Jira and Salesforce in a regulated enterprise environment.</p>
-      <p>On the security side, I've built a <strong>custom SIEM detection lab</strong> using Wazuh, mapped 5 detection rules to MITRE ATT&CK techniques, and integrated an AI-driven remediation layer — giving me a rare combination of QA discipline and security engineering thinking.</p>
-      <p>Currently completing my <strong>MSc in Cybersecurity at Dublin Business School</strong>, graduating September 2026.</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-number">2+</div>
-        <div class="stat-label">Years Enterprise Experience</div>
+  <!-- SCENE 1: Opening -->
+  <div class="scene active" id="s1" data-duration="9000">
+    <div class="hud">SYS://BOOT — SEQUENCE INITIALISING</div>
+    <div class="bracket tl"></div><div class="bracket tr"></div>
+    <div class="bracket bl"></div><div class="bracket br"></div>
+
+    <div style="text-align:center;padding:0 2rem">
+      <p class="title-mono" style="margin-bottom:3rem;opacity:0;animation:fadeIn 2s 0.5s ease forwards">
+        &lt; INITIATING SEQUENCE . . . &gt;
+      </p>
+      <div class="big-quote" style="opacity:0;animation:fadeIn 2.5s 1.5s ease forwards;color:var(--white)">
+        "Every journey begins<br/>
+        <span style="color:var(--cyan);text-shadow:0 0 30px var(--glow-cyan)">with curiosity…"</span>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">50+</div>
-        <div class="stat-label">Defects Tracked & Resolved</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">3</div>
-        <div class="stat-label">Industry Certifications</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">5</div>
-        <div class="stat-label">MITRE ATT&CK Rules Built</div>
+      <div style="margin-top:3rem;opacity:0;animation:fadeIn 1s 4s ease forwards">
+        <div class="laptop-sim" id="terminal">
+          <span class="type-line"></span><span class="cursor"></span>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<hr class="divider"/>
+  <!-- SCENE 2: Introduction -->
+  <div class="scene" id="s2" data-duration="10000">
+    <div class="hud">PROFILE://LOADING</div>
+    <div class="bracket tl"></div><div class="bracket tr"></div>
+    <div class="bracket bl"></div><div class="bracket br"></div>
 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="fade-in">
-    <div class="section-label">// 02 — Skills</div>
-    <h2 class="section-title">What I Bring</h2>
-  </div>
-  <div class="skills-grid fade-in">
-    <div class="skill-card green">
-      <div class="skill-icon">🧪</div>
-      <h3>QA & Software Testing</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Functional Testing</span>
-        <span class="skill-tag">Regression Testing</span>
-        <span class="skill-tag">UAT</span>
-        <span class="skill-tag">Mobile Testing</span>
-        <span class="skill-tag">iOS & Android</span>
-        <span class="skill-tag">Test Case Design</span>
-        <span class="skill-tag">Defect Lifecycle</span>
-        <span class="skill-tag">Pre-release Validation</span>
+    <div style="text-align:center;padding:0 2rem;max-width:900px">
+      <p class="title-mono" style="opacity:0;animation:fadeIn 1s 0.3s forwards;margin-bottom:1rem">
+        Identity confirmed
+      </p>
+      <div class="title-main glitch" data-text="RAVINDHER A" style="opacity:0;animation:fadeIn 1s 0.8s forwards">
+        RAVINDHER A
       </div>
-    </div>
-    <div class="skill-card blue">
-      <div class="skill-icon">🛡️</div>
-      <h3>Security Operations</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Wazuh SIEM</span>
-        <span class="skill-tag">MITRE ATT&CK</span>
-        <span class="skill-tag">Incident Triage</span>
-        <span class="skill-tag">Alert Correlation</span>
-        <span class="skill-tag">Vulnerability Assessment</span>
-        <span class="skill-tag">IAM</span>
-        <span class="skill-tag">GDPR / HIPAA</span>
-      </div>
-    </div>
-    <div class="skill-card cyan">
-      <div class="skill-icon">⚙️</div>
-      <h3>Tools & Platforms</h3>
-      <div class="skill-tags">
-        <span class="skill-tag">Jira</span>
-        <span class="skill-tag">Salesforce CRM</span>
-        <span class="skill-tag">ITSM Platforms</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">Git</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">Linux</span>
-        <span class="skill-tag">Wireshark</span>
-      </div>
+      <div class="neon-line" style="animation-delay:1.5s"></div>
+      <p class="title-sub" style="opacity:0;animation:fadeIn 1s 2s forwards;margin-bottom:2rem">
+        Cybersecurity Enthusiast &nbsp;·&nbsp; IT Professional &nbsp;·&nbsp; QA Analyst
+      </p>
+      <p style="font-size:1rem;color:var(--muted);max-width:500px;margin:0 auto;opacity:0;animation:fadeIn 1s 3s forwards;line-height:1.8">
+        Driven by curiosity. Defined by persistence.<br/>
+        Building the future, one secured system at a time.
+      </p>
+
+      <!-- floating keywords -->
+      <div id="kw-container" style="position:absolute;inset:0;pointer-events:none;overflow:hidden"></div>
     </div>
   </div>
-</section>
 
-<hr class="divider"/>
+  <!-- SCENE 3: Past Experience -->
+  <div class="scene" id="s3" data-duration="14000">
+    <div class="hud">EXPERIENCE://ANALYSING</div>
+    <div class="bracket tl"></div><div class="bracket br"></div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="fade-in">
-    <div class="section-label">// 03 — Projects</div>
-    <h2 class="section-title">What I've Built</h2>
-  </div>
-  <div class="projects-grid fade-in">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;padding:2rem;max-width:1000px;width:100%;align-items:center">
+      <!-- Left: text -->
+      <div>
+        <p class="title-mono" style="opacity:0;animation:fadeIn 0.8s 0.3s forwards;margin-bottom:1rem">IQVIA — 2022 to 2025</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:0.04em;color:var(--white);line-height:1;margin-bottom:1.5rem;opacity:0;animation:fadeIn 0.8s 0.8s forwards">
+          THE FOUNDATION<br/><span style="color:var(--cyan)">WAS BUILT HERE</span>
+        </h2>
 
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-type type-security">Security</span>
+        <div style="opacity:0;animation:fadeIn 0.8s 1.5s forwards">
+          <div class="stat-bar"><div class="stat-bar-label"><span>System Analysis</span><span>91%</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="--w:91%;animation-delay:1.8s"></div></div></div>
+          <div class="stat-bar"><div class="stat-bar-label"><span>Defect Management</span><span>88%</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="--w:88%;animation-delay:2.1s"></div></div></div>
+          <div class="stat-bar"><div class="stat-bar-label"><span>IT Support & SLAs</span><span>90%</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="--w:90%;animation-delay:2.4s"></div></div></div>
+          <div class="stat-bar"><div class="stat-bar-label"><span>Security Awareness</span><span>78%</span></div><div class="stat-bar-track"><div class="stat-bar-fill" style="--w:78%;animation-delay:2.7s"></div></div></div>
+        </div>
       </div>
-      <h3>SIEM Threat Detection & AI-Driven Remediation Lab</h3>
-      <p>Deployed Wazuh SIEM in a virtualised environment and engineered 5 custom detection rules mapped to MITRE ATT&CK techniques (T1059, T1078, T1136, T1548). Simulated real adversary behaviours across Linux and Windows, then integrated a Docker + Ollama AI layer for automated threat classification and remediation.</p>
-      <div class="project-footer">
-        <span class="skill-tag">Wazuh SIEM</span>
-        <span class="skill-tag">MITRE ATT&CK</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">Ollama AI</span>
-        <span class="skill-tag">Linux</span>
-        <span class="skill-tag">Python</span>
-      </div>
-    </div>
 
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-type type-qa">QA</span>
-      </div>
-      <h3>Enterprise QA — Hospital Information Systems</h3>
-      <p>Delivered end-to-end quality assurance for mission-critical healthcare software at IQVIA across 2+ years. Executed functional, regression, and UAT test cycles; managed 50+ defect lifecycle cases in Jira and Salesforce; contributed to a 20% reduction in recurring production defects through structured root cause analysis.</p>
-      <div class="project-footer">
-        <span class="skill-tag">Functional Testing</span>
-        <span class="skill-tag">Regression</span>
-        <span class="skill-tag">UAT</span>
-        <span class="skill-tag">Jira</span>
-        <span class="skill-tag">Salesforce</span>
-        <span class="skill-tag">HIPAA</span>
-      </div>
-    </div>
+      <!-- Right: live log terminal -->
+      <div style="opacity:0;animation:fadeIn 0.8s 2s forwards">
+        <div style="border:1px solid rgba(26,107,255,0.25);border-radius:4px;padding:1.2rem;background:rgba(4,6,15,0.9);font-family:'Share Tech Mono',monospace;font-size:0.6rem">
+          <div style="color:rgba(0,229,255,0.35);font-size:0.52rem;letter-spacing:0.2em;margin-bottom:0.8rem;padding-bottom:0.6rem;border-bottom:1px solid rgba(26,107,255,0.15)">SYSTEM LOG — LIVE FEED</div>
+          <div id="logContainer"></div>
+        </div>
 
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-type type-qa">Mobile QA</span>
-      </div>
-      <h3>Mobile Application Testing — iOS & Android</h3>
-      <p>Performed functional testing and bug logging on IQVIA's healthcare mobile application across both iOS and Android platforms. Identified and documented mobile-specific defects including platform inconsistencies, UI behaviour issues, and feature failures — ensuring quality across both ecosystems before client-facing releases.</p>
-      <div class="project-footer">
-        <span class="skill-tag">iOS Testing</span>
-        <span class="skill-tag">Android Testing</span>
-        <span class="skill-tag">Functional Testing</span>
-        <span class="skill-tag">Bug Logging</span>
-        <span class="skill-tag">Jira</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-header">
-        <span class="project-type type-ai">AI Testing</span>
-      </div>
-      <h3>AI Quality Assurance — Hallucination & Consistency Testing</h3>
-      <p>Developed structured QA approaches for AI system testing, focusing on hallucination detection, non-deterministic output validation, and safety consistency. Designed test case frameworks for measuring factual accuracy, confidence calibration, and acceptable variance thresholds across repeated prompts.</p>
-      <div class="project-footer">
-        <span class="skill-tag">AI Testing</span>
-        <span class="skill-tag">Hallucination Detection</span>
-        <span class="skill-tag">Test Case Design</span>
-        <span class="skill-tag">Consistency Testing</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<hr class="divider"/>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="fade-in">
-    <div class="section-label">// 04 — Experience</div>
-    <h2 class="section-title">Where I've Worked</h2>
-  </div>
-  <div class="timeline fade-in">
-
-    <div class="timeline-item">
-      <div class="timeline-meta">
-        <span class="timeline-date">Jun 2023 – Aug 2025</span>
-        <span class="timeline-company">IQVIA · Dublin, Ireland</span>
-      </div>
-      <h3>Product Support Analyst – QA & Security Focus</h3>
-      <ul>
-        <li>Executed functional, regression, and UAT testing on Hospital Information System releases before client deployment</li>
-        <li>Performed mobile application testing across iOS and Android — functional testing and bug logging</li>
-        <li>Managed 50+ defect cases end-to-end using Jira and Salesforce CRM with full lifecycle documentation</li>
-        <li>Identified and reported 15+ critical security vulnerabilities in regulated healthcare environments</li>
-        <li>Administered IAM operations for 200+ user accounts across enterprise systems</li>
-        <li>Contributed to ~20% reduction in recurring defects through structured root cause analysis</li>
-      </ul>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-meta">
-        <span class="timeline-date">Nov 2022 – May 2023</span>
-        <span class="timeline-company">IQVIA · Dublin, Ireland</span>
-      </div>
-      <h3>Product Support Intern</h3>
-      <ul>
-        <li>Supported pre-release verification and defect logging for software updates in a regulated environment</li>
-        <li>Assisted with IAM activities and incident triage using ITSM platforms</li>
-        <li>Maintained testing documentation to improve team consistency and response quality</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<hr class="divider"/>
-
-<!-- CERTIFICATIONS -->
-<section id="certs">
-  <div class="fade-in">
-    <div class="section-label">// 05 — Certifications</div>
-    <h2 class="section-title">Credentials</h2>
-  </div>
-  <div class="certs-grid fade-in">
-    <div class="cert-card">
-      <div class="cert-icon">🎯</div>
-      <div class="cert-info">
-        <h4>Certified Ethical Hacker</h4>
-        <span>CEH · EC-Council</span>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🔐</div>
-      <div class="cert-info">
-        <h4>CompTIA Security+</h4>
-        <span>SY0-701 · CompTIA</span>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🌐</div>
-      <div class="cert-info">
-        <h4>Cisco CCNA</h4>
-        <span>200-301 · Cisco</span>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🏢</div>
-      <div class="cert-info">
-        <h4>Deloitte Cyber Job Simulation</h4>
-        <span>Certificate of Completion · March 2026</span>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">📚</div>
-      <div class="cert-info">
-        <h4>MSc Cybersecurity</h4>
-        <span>Dublin Business School · 2025–2026</span>
+        <div style="margin-top:1rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+          <span style="font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--white);background:rgba(26,107,255,0.1);border:1px solid rgba(26,107,255,0.3);padding:0.3rem 0.7rem">Analyzed systems</span>
+          <span style="font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--white);background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.3);padding:0.3rem 0.7rem">Found vulnerabilities</span>
+          <span style="font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--white);background:rgba(123,47,255,0.1);border:1px solid rgba(123,47,255,0.3);padding:0.3rem 0.7rem">Ensured quality</span>
+          <span style="font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--white);background:rgba(255,209,102,0.1);border:1px solid rgba(255,209,102,0.3);padding:0.3rem 0.7rem">200+ accounts</span>
+        </div>
       </div>
     </div>
   </div>
-</section>
 
-<hr class="divider"/>
+  <!-- SCENE 4: Turning Point -->
+  <div class="scene" id="s4" data-duration="10000">
+    <div class="hud">INFLECTION://POINT</div>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-grid fade-in">
-    <div class="contact-text">
-      <div class="section-label">// 06 — Contact</div>
-      <h2>Let's Talk</h2>
-      <p>Open to QA Analyst, Software Tester, SOC Analyst, and Security Engineering roles in Dublin and across Ireland. Available for hybrid or remote positions.</p>
-      <a href="mailto:aravindher2001@gmail.com" class="btn btn-primary">Send a Message</a>
+    <!-- Dramatic full-screen text -->
+    <div style="text-align:center;padding:2rem;position:relative;z-index:2">
+      <div class="big-quote" style="opacity:0;animation:fadeIn 1.5s 0.5s forwards;color:var(--muted)">
+        "But I wanted
+      </div>
+      <div class="big-quote" style="opacity:0;animation:fadeIn 1.5s 1.8s forwards;color:var(--white)">
+        something
+      </div>
+      <div class="big-quote glitch" data-text="MORE…" style="opacity:0;animation:fadeIn 1s 3s forwards;color:var(--cyan);text-shadow:0 0 40px var(--glow-cyan),0 0 80px rgba(0,229,255,0.3);font-size:clamp(4rem,12vw,11rem)">
+        MORE…
+      </div>
+
+      <div style="margin-top:2.5rem;opacity:0;animation:fadeIn 1s 5s forwards">
+        <div class="neon-line"></div>
+        <p class="title-mono" style="margin-top:1rem">The routine was no longer enough</p>
+      </div>
     </div>
-    <div class="contact-links">
-      <a href="mailto:aravindher2001@gmail.com" class="contact-link">
-        <span class="contact-link-icon">Email</span>
-        aravindher2001@gmail.com
-      </a>
-      <a href="www.linkedin.com/in/ravindher-a-42b42919b/" target="_blank" class="contact-link">
-        <span class="contact-link-icon">LinkedIn</span>
-        linkedin.com/in/ravindher-a
-      </a>
-      <a href="https://github.com/Ravindher133" target="_blank" class="contact-link">
-        <span class="contact-link-icon">GitHub</span>
-        github.com/Ravindher133
-      </a>
+
+    <!-- Animated threat icons -->
+    <div id="threatIcons" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1"></div>
+  </div>
+
+  <!-- SCENE 5: Journey to Ireland -->
+  <div class="scene" id="s5" data-duration="14000">
+    <div class="hud">LOCATION://TRACKING</div>
+    <div class="bracket tl"></div><div class="bracket br"></div>
+
+    <div style="text-align:center;padding:2rem;max-width:800px">
+      <p class="title-mono" style="opacity:0;animation:fadeIn 0.8s 0.3s forwards;margin-bottom:1.5rem">DESTINATION: DUBLIN, IRELAND</p>
+
+      <!-- SVG Map animation -->
+      <div style="position:relative;width:100%;max-width:560px;margin:0 auto 2rem;opacity:0;animation:fadeIn 1s 0.8s forwards">
+        <svg viewBox="0 0 560 200" style="width:100%;height:auto">
+          <!-- Route line -->
+          <path id="routePath" d="M 80 120 C 200 40, 380 160, 480 90" fill="none" stroke="rgba(0,229,255,0.2)" stroke-width="1" stroke-dasharray="4,4"/>
+          <path id="routeAnimated" d="M 80 120 C 200 40, 380 160, 480 90" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="600" stroke-dashoffset="600" style="animation:routeDraw 3s 1.5s ease forwards;filter:drop-shadow(0 0 6px rgba(0,229,255,0.8))"/>
+
+          <!-- Origin (India) -->
+          <circle cx="80" cy="120" r="6" fill="var(--purple)" style="filter:drop-shadow(0 0 8px rgba(123,47,255,0.8))"/>
+          <text x="80" y="145" fill="rgba(200,216,240,0.7)" font-family="Share Tech Mono" font-size="9" text-anchor="middle">INDIA</text>
+
+          <!-- Destination (Ireland) -->
+          <circle cx="480" cy="90" r="8" fill="var(--cyan)" class="map-dot" style="animation:dotPulse 1.5s 4s infinite;opacity:0;animation-fill-mode:both"/>
+          <text x="480" y="115" fill="var(--cyan)" font-family="Share Tech Mono" font-size="10" text-anchor="middle" style="filter:drop-shadow(0 0 4px var(--cyan))">DUBLIN</text>
+
+          <!-- Plane icon along path -->
+          <text id="planeIcon" x="80" y="125" font-size="16" style="opacity:0;animation:planeMove 3s 1.5s ease forwards">✈</text>
+        </svg>
+
+        <style>
+          @keyframes routeDraw{to{stroke-dashoffset:0}}
+          @keyframes planeMove{
+            0%{transform:translate(0,0);opacity:1}
+            100%{transform:translate(400px,-30px);opacity:1}
+          }
+        </style>
+      </div>
+
+      <div style="opacity:0;animation:fadeIn 1s 4s forwards">
+        <div class="title-main" style="font-size:clamp(2rem,5vw,4rem);margin-bottom:1rem">
+          MOVED TO <span style="color:var(--cyan)">IRELAND</span>
+        </div>
+        <div class="neon-line"></div>
+        <p class="title-sub" style="margin-top:1rem">To pursue Cybersecurity</p>
+      </div>
+
+      <div style="display:flex;gap:2rem;justify-content:center;margin-top:2rem;opacity:0;animation:fadeIn 1s 6s forwards;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--cyan)">ADAPTED</div>
+        </div>
+        <div class="neon-line-v" style="height:50px"></div>
+        <div style="text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--white)">LEARNED</div>
+        </div>
+        <div class="neon-line-v" style="height:50px"></div>
+        <div style="text-align:center">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--violet)">GREW</div>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-<footer>
-  <p>Ravindher A · Dublin, Ireland · Built with purpose, not a template</p>
-</footer>
+  <!-- SCENE 6: Life in Ireland / Learning -->
+  <div class="scene" id="s6" data-duration="18000">
+    <div class="hud">STATUS://UPSKILLING</div>
+    <div class="bracket tl"></div><div class="bracket br"></div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:2rem;max-width:1000px;width:100%;align-items:start">
+      <div>
+        <p class="title-mono" style="opacity:0;animation:fadeIn 0.8s 0.3s forwards;margin-bottom:1rem">MSC CYBERSECURITY — DBS 2025–2026</p>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,4vw,3.2rem);letter-spacing:0.04em;color:var(--white);line-height:1.05;margin-bottom:1.5rem;opacity:0;animation:fadeIn 0.8s 0.8s forwards">
+          HANDS-ON<br/><span style="color:var(--cyan)">REAL-WORLD</span><br/>SKILLS
+        </h2>
+
+        <div style="display:flex;flex-direction:column;gap:0.75rem;opacity:0;animation:fadeIn 0.8s 1.5s forwards">
+          <div style="display:flex;align-items:center;gap:0.8rem;font-family:'Share Tech Mono',monospace;font-size:0.68rem;color:var(--cyan)">
+            <span style="color:var(--blue)">▸</span> Security Testing (XSS, SQLi, IDOR)
+          </div>
+          <div style="display:flex;align-items:center;gap:0.8rem;font-family:'Share Tech Mono',monospace;font-size:0.68rem;color:var(--cyan)">
+            <span style="color:var(--blue)">▸</span> OWASP Top 10 / WebGoat Labs
+          </div>
+          <div style="display:flex;align-items:center;gap:0.8rem;font-family:'Share Tech Mono',monospace;font-size:0.68rem;color:var(--cyan)">
+            <span style="color:var(--blue)">▸</span> Wazuh SIEM + MITRE ATT&CK Mapping
+          </div>
+          <div style="display:flex;align-items:center;gap:0.8rem;font-family:'Share Tech Mono',monospace;font-size:0.68rem;color:var(--cyan)">
+            <span style="color:var(--blue)">▸</span> Docker + Ollama AI Remediation
+          </div>
+          <div style="display:flex;align-items:center;gap:0.8rem;font-family:'Share Tech Mono',monospace;font-size:0.68rem;color:var(--cyan)">
+            <span style="color:var(--blue)">▸</span> Wireshark · Burp Suite · Kali Linux
+          </div>
+        </div>
+      </div>
+
+      <!-- Live code snippet -->
+      <div style="opacity:0;animation:fadeIn 0.8s 2s forwards">
+        <div style="border:1px solid rgba(26,107,255,0.25);border-radius:4px;background:rgba(4,6,15,0.95);overflow:hidden">
+          <div style="background:rgba(26,107,255,0.08);padding:0.5rem 1rem;font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:rgba(0,229,255,0.5);letter-spacing:0.15em;border-bottom:1px solid rgba(26,107,255,0.15)">
+            wazuh_rules.xml &nbsp;·&nbsp; mitre_mapping.py &nbsp;·&nbsp; detection.conf
+          </div>
+          <div id="codeBlock" style="padding:1rem;font-family:'Share Tech Mono',monospace;font-size:0.62rem;line-height:1.9;color:rgba(0,229,255,0.7);min-height:160px"></div>
+        </div>
+
+        <!-- Cert badges -->
+        <div style="display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap">
+          <div style="padding:0.4rem 0.8rem;background:rgba(123,47,255,0.1);border:1px solid rgba(123,47,255,0.35);font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--violet)">CEH</div>
+          <div style="padding:0.4rem 0.8rem;background:rgba(26,107,255,0.1);border:1px solid rgba(26,107,255,0.35);font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--blue)">Security+</div>
+          <div style="padding:0.4rem 0.8rem;background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.35);font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--cyan)">CCNA</div>
+          <div style="padding:0.4rem 0.8rem;background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.35);font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:#ff6b6b">MSc 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 7: Projects & Skills -->
+  <div class="scene" id="s7" data-duration="16000">
+    <div class="hud">PROJECTS://DEPLOYED</div>
+
+    <div style="text-align:center;padding:2rem;max-width:900px;width:100%">
+      <p class="title-mono" style="opacity:0;animation:fadeIn 0.8s 0.3s forwards;margin-bottom:1rem">SKILL MATRIX — LEVEL PROGRESSION</p>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,4.5rem);letter-spacing:0.04em;color:var(--white);margin-bottom:2rem;opacity:0;animation:fadeIn 0.8s 0.8s forwards">
+        UNLOCKING <span style="color:var(--cyan)">NEW LEVELS</span>
+      </h2>
+
+      <div style="opacity:0;animation:fadeIn 0.8s 1.5s forwards;text-align:left;margin-bottom:2rem">
+        <div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:0.62rem;color:var(--cyan);margin-bottom:4px"><span>Penetration Testing Basics</span><span>LVL 3</span></div>
+        <div class="level-bar"><div class="level-fill" style="--lw:68%;background:linear-gradient(90deg,var(--purple),var(--violet));animation-delay:2s"></div></div>
+
+        <div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:0.62rem;color:var(--cyan);margin-bottom:4px;margin-top:0.8rem"><span>SIEM & Threat Detection</span><span>LVL 4</span></div>
+        <div class="level-bar"><div class="level-fill" style="--lw:78%;background:linear-gradient(90deg,var(--blue),var(--cyan));animation-delay:2.3s"></div></div>
+
+        <div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:0.62rem;color:var(--cyan);margin-bottom:4px;margin-top:0.8rem"><span>QA & Software Testing</span><span>LVL 5</span></div>
+        <div class="level-bar"><div class="level-fill" style="--lw:88%;background:linear-gradient(90deg,var(--accent2,#00e5ff),#7affd9);animation-delay:2.6s"></div></div>
+
+        <div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:0.62rem;color:var(--cyan);margin-bottom:4px;margin-top:0.8rem"><span>IT Support & Service Desk</span><span>LVL 5</span></div>
+        <div class="level-bar"><div class="level-fill" style="--lw:90%;background:linear-gradient(90deg,var(--blue),#7ab8ff);animation-delay:2.9s"></div></div>
+
+        <div style="display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:0.62rem;color:var(--cyan);margin-bottom:4px;margin-top:0.8rem"><span>Network Security (CCNA)</span><span>LVL 4</span></div>
+        <div class="level-bar"><div class="level-fill" style="--lw:80%;background:linear-gradient(90deg,var(--purple),var(--blue));animation-delay:3.2s"></div></div>
+      </div>
+
+      <!-- Project highlights -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;opacity:0;animation:fadeIn 0.8s 4s forwards;text-align:left">
+        <div style="padding:0.9rem;border:1px solid rgba(26,107,255,0.2);background:rgba(26,107,255,0.05);border-radius:3px">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:var(--cyan);letter-spacing:0.1em;margin-bottom:0.4rem">PROJECT_01</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:0.85rem;color:var(--white)">SIEM Detection Lab</div>
+          <div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem">Wazuh · MITRE · Docker · AI</div>
+        </div>
+        <div style="padding:0.9rem;border:1px solid rgba(0,229,255,0.2);background:rgba(0,229,255,0.05);border-radius:3px">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:var(--cyan);letter-spacing:0.1em;margin-bottom:0.4rem">PROJECT_02</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:0.85rem;color:var(--white)">Enterprise QA @ IQVIA</div>
+          <div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem">50+ defects · 20% reduction</div>
+        </div>
+        <div style="padding:0.9rem;border:1px solid rgba(123,47,255,0.2);background:rgba(123,47,255,0.05);border-radius:3px">
+          <div style="font-family:'Share Tech Mono',monospace;font-size:0.55rem;color:var(--cyan);letter-spacing:0.1em;margin-bottom:0.4rem">PROJECT_03</div>
+          <div style="font-family:'Rajdhani',sans-serif;font-weight:600;font-size:0.85rem;color:var(--white)">AI Hallucination Testing</div>
+          <div style="font-size:0.75rem;color:var(--muted);margin-top:0.3rem">QA frameworks for LLMs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 8: Closing -->
+  <div class="scene" id="s8" data-duration="14000">
+    <div id="horizonCanvas" style="position:absolute;inset:0;z-index:0"></div>
+    <div style="position:relative;z-index:2;text-align:center;padding:2rem">
+      <p class="title-mono" style="opacity:0;animation:fadeIn 1.5s 0.5s forwards;margin-bottom:2rem;font-size:0.75rem;letter-spacing:0.3em">
+        — THE JOURNEY CONTINUES —
+      </p>
+      <div class="big-quote" style="opacity:0;animation:fadeIn 2s 1.5s forwards;color:var(--muted)">
+        "This is just
+      </div>
+      <div class="big-quote" style="opacity:0;animation:fadeIn 2s 3s forwards;color:var(--white)">
+        the beginning…"
+      </div>
+      <div class="neon-line" style="animation-delay:4.5s"></div>
+      <div class="title-main" style="font-size:clamp(1.5rem,4vw,3rem);margin-top:1.5rem;opacity:0;animation:fadeIn 1.5s 5s forwards;color:var(--cyan);text-shadow:0 0 40px var(--glow-cyan)">
+        Future Cybersecurity Professional
+      </div>
+      <p style="font-family:'Rajdhani',sans-serif;font-size:1rem;color:var(--muted);max-width:500px;margin:1.5rem auto 0;opacity:0;animation:fadeIn 1.5s 7s forwards;line-height:1.8">
+        Every vulnerability found. Every system secured.<br/>
+        Every skill mastered — brings this future closer.
+      </p>
+    </div>
+  </div>
+
+  <!-- SCENE 9: Final Frame -->
+  <div class="scene" id="s9" data-duration="99999">
+    <div class="hud">PROFILE://COMPLETE</div>
+
+    <div style="text-align:center;padding:2rem">
+      <div class="final-card" style="opacity:0;animation:fadeIn 2s 0.5s forwards">
+        <p class="title-mono" style="margin-bottom:1rem;opacity:0.6">CYBERSECURITY PROFESSIONAL</p>
+        <div class="title-main glitch" data-text="RAVINDHER A" style="font-size:clamp(2.5rem,7vw,5.5rem)">
+          RAVINDHER A
+        </div>
+        <div class="neon-line" style="animation-delay:1s;max-width:300px"></div>
+
+        <div style="display:flex;gap:1.5rem;justify-content:center;margin:1.5rem 0;flex-wrap:wrap">
+          <span class="title-sub" style="font-size:0.75rem">IT Support</span>
+          <span style="color:var(--border,#1a2a4a)">·</span>
+          <span class="title-sub" style="font-size:0.75rem">QA Analyst</span>
+          <span style="color:var(--border,#1a2a4a)">·</span>
+          <span class="title-sub" style="font-size:0.75rem">SOC Analyst</span>
+          <span style="color:var(--border,#1a2a4a)">·</span>
+          <span class="title-sub" style="font-size:0.75rem">Security Engineer</span>
+        </div>
+
+        <div class="contact-row">
+          <a href="mailto:aravindher2001@gmail.com" class="contact-pill">✉ aravindher2001@gmail.com</a>
+          <a href="https://linkedin.com/in/ravindher-a" target="_blank" class="contact-pill">in linkedin.com/in/ravindher-a</a>
+          <a href="https://github.com/Ravindher133" target="_blank" class="contact-pill">⌥ github.com/Ravindher133</a>
+        </div>
+
+        <div style="margin-top:2rem;font-family:'Share Tech Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;color:var(--muted)">
+          DUBLIN, IRELAND &nbsp;·&nbsp; FULL WORK RIGHTS &nbsp;·&nbsp; AVAILABLE NOW
+        </div>
+      </div>
+
+      <!-- Replay button -->
+      <button id="replayBtn" class="ctrl-btn" style="margin-top:2rem;padding:0.75rem 2rem;font-size:0.75rem;opacity:0;animation:fadeIn 1s 3s forwards">
+        ↺ &nbsp; Watch Again
+      </button>
+    </div>
+  </div>
+
+</div><!-- end stage -->
 
 <script>
-  // Scroll fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
+/* ═══════════════════════════════════
+   ANIMATED PARTICLE BACKGROUND
+═══════════════════════════════════ */
+const bgC=document.getElementById('bgCanvas');
+const bgX=bgC.getContext('2d');
+function resizeBg(){bgC.width=innerWidth;bgC.height=innerHeight}
+resizeBg();window.addEventListener('resize',resizeBg);
+const pts=Array.from({length:60},()=>({
+  x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+  vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+  r:Math.random()*.8+.2,a:Math.random()*.3+.05
+}));
+function animBg(){
+  bgX.clearRect(0,0,bgC.width,bgC.height);
+  pts.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=bgC.width;if(p.x>bgC.width)p.x=0;
+    if(p.y<0)p.y=bgC.height;if(p.y>bgC.height)p.y=0;
+    bgX.beginPath();bgX.arc(p.x,p.y,p.r,0,Math.PI*2);
+    bgX.fillStyle=`rgba(26,107,255,${p.a})`;bgX.fill();
+  });
+  pts.forEach((p,i)=>pts.slice(i+1).forEach(q=>{
+    const d=Math.hypot(p.x-q.x,p.y-q.y);
+    if(d<100){bgX.beginPath();bgX.moveTo(p.x,p.y);bgX.lineTo(q.x,q.y);
+      bgX.strokeStyle=`rgba(26,107,255,${.08*(1-d/100)})`;bgX.lineWidth=.5;bgX.stroke()}
+  }));
+  requestAnimationFrame(animBg);
+}
+animBg();
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+/* ═══════════════════════════════════
+   CODE RAIN EFFECT
+═══════════════════════════════════ */
+const cc=document.getElementById('codeCanvas');
+const cx=cc.getContext('2d');
+cc.width=innerWidth;cc.height=innerHeight;
+window.addEventListener('resize',()=>{cc.width=innerWidth;cc.height=innerHeight});
+const cols=Math.floor(innerWidth/16);
+const drops=Array(cols).fill(0);
+const chars='アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホ01アBCDEFGHIJKLMNOP0101:>/<=>!@#';
+function codeRain(){
+  cx.fillStyle='rgba(0,0,9,0.06)';cx.fillRect(0,0,cc.width,cc.height);
+  cx.fillStyle='rgba(0,229,255,0.35)';cx.font='13px Share Tech Mono,monospace';
+  drops.forEach((y,i)=>{
+    cx.fillText(chars[Math.floor(Math.random()*chars.length)],i*16,y*16);
+    if(y*16>cc.height&&Math.random()>.97)drops[i]=0;else drops[i]++;
+  });
+}
+setInterval(codeRain,55);
+
+/* ═══════════════════════════════════
+   TIMELINE ENGINE
+═══════════════════════════════════ */
+const scenes=document.querySelectorAll('.scene');
+let current=0,playing=true,timer=null,elapsed=0;
+const TOTAL_DURATION=scenes.length*10000; // approx
+let sceneDurations=[];
+scenes.forEach(s=>sceneDurations.push(parseInt(s.dataset.duration)||8000));
+const totalDur=sceneDurations.reduce((a,b)=>a+b,0);
+let cumulDur=0;
+
+function goTo(idx,dir=1){
+  scenes[current].classList.remove('active');
+  scenes[current].querySelectorAll('[style*="animation"]').forEach(el=>{
+    el.style.animationPlayState='paused';
+  });
+  current=Math.max(0,Math.min(scenes.length-1,idx));
+  scenes[current].classList.add('active');
+  document.getElementById('scene-counter').textContent=
+    String(current+1).padStart(2,'0')+' / '+String(scenes.length).padStart(2,'0');
+
+  // Reset animations in new scene
+  scenes[current].querySelectorAll('.skill-bar-fill,.level-fill,.stat-bar-fill').forEach(el=>{
+    el.style.animationPlayState='running';
+  });
+
+  // Scene-specific inits
+  if(current===1) initScene2();
+  if(current===2) initScene3();
+  if(current===3) initScene4();
+  if(current===5) initScene6();
+  if(current===7) initScene8();
+
+  updateProgress();
+  clearTimeout(timer);
+  if(playing && current<scenes.length-1){
+    timer=setTimeout(()=>goTo(current+1),sceneDurations[current]);
+  }
+}
+
+function updateProgress(){
+  let done=sceneDurations.slice(0,current).reduce((a,b)=>a+b,0);
+  const pct=(done/totalDur)*100;
+  document.getElementById('progress-fill').style.width=pct+'%';
+}
+
+document.getElementById('nextBtn').onclick=()=>goTo(current+1);
+document.getElementById('prevBtn').onclick=()=>goTo(current-1);
+document.getElementById('playBtn').onclick=function(){
+  playing=!playing;
+  this.textContent=playing?'⏸ Pause':'▶ Play';
+  if(playing && current<scenes.length-1){
+    timer=setTimeout(()=>goTo(current+1),sceneDurations[current]);
+  } else clearTimeout(timer);
+};
+document.getElementById('replayBtn').onclick=()=>goTo(0);
+
+// Keyboard navigation
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='Space')goTo(current+1);
+  if(e.key==='ArrowLeft')goTo(current-1);
+});
+
+// Start
+timer=setTimeout(()=>goTo(1),sceneDurations[0]);
+
+/* ═══════════════════════════════════
+   SCENE 1 — Terminal typer
+═══════════════════════════════════ */
+const termLines=[
+  '> Connecting to IQVIA support desk...',
+  '> Queue loaded: 47 tickets pending',
+  '> SLA breach warning: ticket #1089',
+  '> Triaging incident — P1 escalation',
+  '> VPN connectivity restored ✓',
+  '> User account provisioned ✓',
+  '> Documentation updated ✓',
+];
+let tIdx=0,tChar=0;
+const termEl=document.querySelector('#terminal .type-line');
+function typeTerminal(){
+  if(tIdx>=termLines.length)return;
+  const line=termLines[tIdx];
+  if(tChar<line.length){
+    termEl.textContent=termLines.slice(0,tIdx).join('\n')+'\n'+line.slice(0,tChar+1);
+    tChar++;
+    setTimeout(typeTerminal,30+(Math.random()*40));
+  } else {
+    tIdx++;tChar=0;
+    setTimeout(typeTerminal,400);
+  }
+}
+setTimeout(typeTerminal,4500);
+
+/* ═══════════════════════════════════
+   SCENE 2 — Floating keywords
+═══════════════════════════════════ */
+function initScene2(){
+  const kws=['Security','Persistence','Curiosity','Learning','Resilience','Analysis','Detail','Quality','Trust','Focus','Growth','IQVIA','Dublin','Cyber'];
+  const container=document.getElementById('kw-container');
+  container.innerHTML='';
+  kws.forEach((kw,i)=>{
+    const el=document.createElement('div');
+    el.className='kw-float';
+    el.textContent=kw;
+    el.style.left=Math.random()*80+10+'%';
+    el.style.top=Math.random()*70+10+'%';
+    const colors=['var(--cyan)','var(--violet)','var(--blue)','rgba(200,216,240,0.6)'];
+    el.style.color=colors[i%4];
+    el.style.animationDelay=(i*0.6)+'s';
+    el.style.animationDuration='3s';
+    container.appendChild(el);
+  });
+}
+
+/* ═══════════════════════════════════
+   SCENE 3 — Live log lines
+═══════════════════════════════════ */
+function initScene3(){
+  const logs=[
+    {t:'INFO',m:'> [08:42:11] Ticket #4821 opened — user unable to connect VPN',c:''},
+    {t:'WARN',m:'> [08:45:03] SLA threshold 75% — escalation pending',c:'warn'},
+    {t:'INFO',m:'> [09:12:44] M365 Teams outage — 38 users affected',c:''},
+    {t:'ALERT',m:'> [09:15:02] P1 incident raised — coordinating with infra team',c:'alert'},
+    {t:'INFO',m:'> [09:44:18] VPN connectivity restored — ticket resolved ✓',c:''},
+    {t:'INFO',m:'> [10:02:55] 200+ user accounts audited — access policies enforced',c:''},
+    {t:'WARN',m:'> [10:30:01] Security vulnerability flagged in test build #884',c:'warn'},
+    {t:'INFO',m:'> [11:00:00] QA regression cycle complete — 0 critical defects ✓',c:''},
+  ];
+  const container=document.getElementById('logContainer');
+  container.innerHTML='';
+  logs.forEach((log,i)=>{
+    const el=document.createElement('div');
+    el.className='log-line '+log.c;
+    el.textContent=log.m;
+    el.style.animationDelay=(2+i*0.7)+'s';
+    container.appendChild(el);
+  });
+}
+
+/* ═══════════════════════════════════
+   SCENE 4 — Threat icons floating
+═══════════════════════════════════ */
+function initScene4(){
+  const container=document.getElementById('threatIcons');
+  container.innerHTML='';
+  const icons=['🔒','⚡','🛡️','⚠️','🌐','🔑','💻','📡','🚨','🔐'];
+  icons.forEach((ic,i)=>{
+    const el=document.createElement('div');
+    el.style.cssText=`position:absolute;font-size:${1.5+Math.random()*2}rem;
+      left:${Math.random()*90+5}%;top:${Math.random()*80+10}%;
+      opacity:0;animation:fadeIn ${1+Math.random()}s ${2+i*0.4}s ease forwards;
+      filter:drop-shadow(0 0 10px rgba(0,229,255,0.6));
+      transition:all 0.3s`;
+    el.textContent=ic;
+    container.appendChild(el);
+  });
+}
+
+/* ═══════════════════════════════════
+   SCENE 6 — Code block typer
+═══════════════════════════════════ */
+function initScene6(){
+  const snippet=[
+    '<span style="color:#7b2fff">&lt;rule id="100001" level="12"&gt;</span>',
+    '  <span style="color:#00e5ff">description</span>: MITRE T1059 - Shell Execution',
+    '  <span style="color:#00e5ff">mitre</span>: T1059.003',
+    '  <span style="color:#1a6bff">if_sid</span>: 550, 554',
+    '  <span style="color:#1a6bff">match</span>: cmd.exe /c | powershell -enc',
+    '<span style="color:#7b2fff">&lt;/rule&gt;</span>',
+    '',
+    '<span style="color:#ffd166"># Python remediation trigger</span>',
+    '<span style="color:#00e5ff">def</span> trigger_ai_remediation(alert):',
+    '  response = ollama.chat(model=<span style="color:#1a6bff">"llama3"</span>)',
+    '  <span style="color:#00e5ff">return</span> response[<span style="color:#1a6bff">"action"</span>]',
+  ];
+  const el=document.getElementById('codeBlock');
+  el.innerHTML='';
+  snippet.forEach((line,i)=>{
+    const div=document.createElement('div');
+    div.innerHTML=line||'&nbsp;';
+    div.style.cssText=`opacity:0;animation:fadeIn 0.3s ${2.5+i*0.25}s ease forwards`;
+    el.appendChild(div);
+  });
+}
+
+/* ═══════════════════════════════════
+   SCENE 8 — Horizon canvas
+═══════════════════════════════════ */
+function initScene8(){
+  const wrap=document.getElementById('horizonCanvas');
+  const cvs=document.createElement('canvas');
+  cvs.style.cssText='position:absolute;inset:0;width:100%;height:100%;opacity:0.25';
+  cvs.width=innerWidth;cvs.height=innerHeight;
+  wrap.appendChild(cvs);
+  const ctx=cvs.getContext('2d');
+  let t=0;
+  function drawHorizon(){
+    ctx.clearRect(0,0,cvs.width,cvs.height);
+    const cx2=cvs.width/2,cy2=cvs.height/2;
+    // Grid perspective
+    ctx.strokeStyle='rgba(26,107,255,0.4)';ctx.lineWidth=0.8;
+    for(let i=-20;i<=20;i++){
+      const x=cx2+i*60;
+      ctx.beginPath();ctx.moveTo(x,cy2);
+      ctx.lineTo(cx2+i*600,cvs.height);ctx.stroke();
+    }
+    for(let j=0;j<12;j++){
+      const y=cy2+j*30+((t*20)%30);
+      const scale=1+(j*0.08);
+      ctx.beginPath();
+      ctx.moveTo(cx2-1200*scale,y);ctx.lineTo(cx2+1200*scale,y);ctx.stroke();
+    }
+    // Horizon glow
+    const g=ctx.createLinearGradient(0,cy2-2,0,cy2+2);
+    g.addColorStop(0,'rgba(0,229,255,0)');
+    g.addColorStop(0.5,'rgba(0,229,255,0.8)');
+    g.addColorStop(1,'rgba(0,229,255,0)');
+    ctx.fillStyle=g;ctx.fillRect(0,cy2-1,cvs.width,2);
+    t+=0.016;
+    requestAnimationFrame(drawHorizon);
+  }
+  drawHorizon();
+}
+
+// Init scene 8 when it activates
+const origGoTo=goTo;
 </script>
+<audio autoplay loop>
+ <source src="your-trailer-music.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
